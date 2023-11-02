@@ -76,9 +76,26 @@ void main()
         }
         else if (ch == 5)
         {
-            for (i = 0; i < n; i = (i + 1) % n)
+            int front = 0; // Initialize the front of the circular queue
+            int rear = 0;  // Initialize the rear of the circular queue
+
+            if (front == rear || rear == n - 1)
             {
-                printf("%d", a[i]);
+                printf("Circular Queue is empty.\n");
+            }
+            else
+            {
+                printf("Circular Queue elements: ");
+                int count = 0;
+
+                do
+                {
+                    printf("%d ", a[front]);
+                    front = (front + 1) % n;
+                    count++;
+                } while (front != rear && count < n);
+
+                printf("\n");
             }
         }
         else if (ch == 6)
